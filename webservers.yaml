@@ -102,3 +102,14 @@ Resources:
     UpdatePolicy:
       AutoScalingReplacingUpdate:
         WillReplace: True
+
+Outputs: 
+
+  WebServer_LB_DNS: 
+    Description: The DNS of the Load Balancer access
+    Value: 
+      Fn::GetAtt: 
+        - LoadBalancer
+        - DNSName
+    Export:
+      Name: !Sub ${EnvironmentName}-LB-DNS
